@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Orientação</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+	
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: url(img/bg.jpg) no-repeat;
+		}
+
+		#vertical, #horizontal {
+			display: none;
+			position: absolute;
+			font-family: Courier, Arial;
+			color: #FFF;
+			font-size: 85px;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		#vertical {
+			width: 768px;
+			height: 1024px;
+			color: #c93935;
+		}
+
+			#vertical p {
+				margin-top: 482px;
+			}
+
+		#horizontal {
+			width: 1024px;
+			height: 768px;
+			color: #d6a50c;
+		}
+
+			#horizontal p {
+				margin-top: 354px;
+			}
+	</style>
+</head>
+<body>
+
+	<div id="vertical">
+		<p>Vertical</p>
+	</div>
+
+	<div id="horizontal">
+		<p>Horizontal</p>
+	</div>
+
+	<script type="text/javascript" src="scripts/tabletlab.js"></script>
+	<script type="text/javascript">
+		checarOrientacao();
+		TL.cbOrientacao(checarOrientacao);
+
+		var vertical = document.getElementById('vertical');
+		var horizontal = document.getElementById('horizontal');
+
+		function checarOrientacao() {
+			if (TL.orientacao() == 'vertical') {
+				vertical.style.display = 'block';
+				horizontal.style.display = 'none';
+			} else {
+				vertical.style.display = 'none';
+				horizontal.style.display = 'block';
+			}
+		}
+	</script>
+</body>
+</html>
